@@ -10,7 +10,7 @@ public class Usuario {
     private String ApellidosUser;
     private String correoUser;
     private String passwordUser;
-    int prskkao;
+
 
     public Usuario(int ID, String ApellidosUser, String NombreUser, String correoUser, String passwordUser){
         this.ID =  ID;
