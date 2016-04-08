@@ -7,40 +7,70 @@ package com.example.kevdev.searchbook;
 public class Usuario {
     private int ID;
     private String NombreUser;
+    private String userName;
     private String ApellidosUser;
-    private String correoUser;
+    private String email;
+    private String phone;
     private String passwordUser;
 
 
-    public Usuario(int ID, String ApellidosUser, String NombreUser, String correoUser, String passwordUser){
+    public Usuario(int ID, String NombreUser, String ApellidosUser,String email, String phone, String passwordUser, String userName){
         this.ID =  ID;
         this.ApellidosUser = ApellidosUser;
+        this.email = email;
+        this.userName = userName;
+        this.phone = phone;
         this.NombreUser = NombreUser;
-        this.correoUser = correoUser;
         this.passwordUser = passwordUser;
     }
 
+    public Usuario(){
+        NombreUser = "";
+        userName = "";
+        ApellidosUser = "";
+        email = "";
+        phone = "";
+        passwordUser = "";
+    }
     public String getNombreUser() {
 
         return NombreUser;
     }
-
-    public String getApellidosUser() {
-
-        return ApellidosUser;
+    public void setNombreUser(String nombre){
+        this.NombreUser = nombre;
     }
 
-    public String getCorreoUser(){
-        return correoUser;
+    public String getApellidosUser() { return ApellidosUser;}
+
+    public void setApellidoUser(String apellido){
+        this.ApellidosUser = apellido;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    public String getEmail(){
+        return email;
     }
 
     public String getPasswordUser(){
         return passwordUser;
     }
 
-    public int getID() {
-
-        return ID;
+    public void setPasswordUser(String pass){
+        this.passwordUser = pass;
     }
+
+    public int getID() { return ID; }
+    public void setID(int ID){
+        this.ID = ID;
+    }
+
+    public String getPhone(){return phone;}
+    public void setPhone(String phone){this.phone = phone;}
+
+    public String getUserName(){return userName;}
+    public void setUserName(String userName){this.userName = userName;}
 
 }

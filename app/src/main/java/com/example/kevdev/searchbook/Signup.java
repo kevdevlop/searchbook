@@ -11,12 +11,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+//TODO: clase para registrar a un usuario, ya que en andriod se crea una clase por cada vista
+// En el documento no aparece esta clase ya que en android se maneja diferente
 public class Signup extends AppCompatActivity {
 
     EditText editTextUserName,editTextPassword,editTextConfirmPassword, editTextEmail, editTextPhone, editTextLastName, editTextName;
     Button btnCreateAccount, cancel;
+    Usuario user;
 
-    LoginDataBaseAdapter loginDataBaseAdapter;
+    ConexionDB conexionDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +27,8 @@ public class Signup extends AppCompatActivity {
         setContentView(R.layout.content_signup);
 
         // get Instance  of Database Adapter
-        loginDataBaseAdapter=new LoginDataBaseAdapter(this);
-        loginDataBaseAdapter=loginDataBaseAdapter.open();
+        conexionDB=new ConexionDB(this);
+        conexionDB=conexionDB.open();
 
         // Get Refferences of Views
         editTextEmail=(EditText)findViewById(R.id.EditTxtEmailUser);
@@ -41,22 +44,25 @@ public class Signup extends AppCompatActivity {
 
     }
     public  void toSignUp(View v){
-        String emailUser = editTextEmail.getText().toString();
-        String name = editTextName.getText().toString();
-        String lastName = editTextLastName.getText().toString();
-        String phone = editTextPhone.getText().toString();
-        String userName=editTextUserName.getText().toString();
-        String password=editTextPassword.getText().toString();
+        user = new Usuario();
+        user.setNombreUser(editTextName.getText().toString());
+        user.setUserName(editTextUserName.getText().toString());
+        user.setEmail(editTextEmail.getText().toString());
+        user.setApellidoUser(editTextLastName.getText().toString());
+        user.setPasswordUser(editTextPassword.getText().toString());
+        user.setPhone(editTextPhone.getText().toString());
+
         String confirmPassword=editTextConfirmPassword.getText().toString();
 
         // check if any of the fields are vaccant
-        if(userName.equals("")||password.equals("")||confirmPassword.equals("")||emailUser.equals(""))
+        if(user.getNombreUser().equals("")||user.getApellidosUser().equals("")||confirmPassword.equals("")||user.getEmail().equals("")
+                || user.getPhone().equals("") || user.getUserName().equals(""))
         {
             Toast.makeText(getApplicationContext(), "Completa los campos", Toast.LENGTH_LONG).show();
             return;
         }
         // check if both password matches
-        if(!password.equals(confirmPassword))
+        if(!user.getPasswordUser().equals(confirmPassword))
         {
             Toast.makeText(getApplicationContext(), "La contraseñas no coinciden", Toast.LENGTH_LONG).show();
             return;
@@ -64,7 +70,8 @@ public class Signup extends AppCompatActivity {
         else
         {
             // Save the Data in Database
-            loginDataBaseAdapter.insertEntry(userName,name,lastName,phone,password, emailUser);
+            conexionDB.agregarUsuario(user.getUserName(),user.getNombreUser(),user.getApellidosUser(),user.getPhone()
+                    ,user.getPasswordUser(), user.getEmail());
             Toast.makeText(getApplicationContext(), "Cuenta Creada ", Toast.LENGTH_LONG).show();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
@@ -75,7 +82,7 @@ public class Signup extends AppCompatActivity {
         // TODO Auto-generated method stub
         super.onDestroy();
 
-        loginDataBaseAdapter.close();
+        conexionDB.close();
     }
     public void btn_toCancel(View view){
         Intent i = new Intent(this, MainActivity.class);

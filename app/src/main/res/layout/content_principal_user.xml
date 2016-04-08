@@ -12,6 +12,7 @@
     tools:context="com.example.kevdev.searchbook.PrincipalUser"
     tools:showIn="@layout/activity_principal_user">
 
+<<<<<<< Updated upstream
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -19,6 +20,86 @@
         android:layout_marginBottom="14dp"                android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Bienvenido"
         android:id="@+id/textView3" />
+=======
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="492dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Bienvenido, "
+            android:id="@+id/textView4"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/txtTV"
+            android:layout_toStartOf="@+id/txtTV" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/txtTV"
+            android:layout_alignBottom="@+id/textView4"
+            android:layout_toRightOf="@+id/btn_logout"
+            android:layout_toEndOf="@+id/btn_logout"
+            android:textColor="#0057a8" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agregar Libro"
+            android:id="@+id/btn_goToDelLibro"
+            android:layout_marginTop="48dp"
+            android:onClick="onNewTratamiento"
+            android:layout_below="@+id/txtTV"
+            android:layout_alignLeft="@+id/btn_bajaUser"
+            android:layout_alignStart="@+id/btn_bajaUser" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salir"
+            android:id="@+id/btn_logout"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="LogOut" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modificar datos"
+            android:id="@+id/btn_toModifData"
+            android:onClick="onConsult"
+            android:layout_alignTop="@+id/btn_goToDelLibro"
+            android:layout_alignRight="@+id/button"
+            android:layout_alignEnd="@+id/button" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Darse de baja"
+            android:id="@+id/btn_bajaUser"
+            android:layout_marginTop="54dp"
+            android:layout_below="@+id/btn_toModifData"
+            android:layout_toLeftOf="@+id/btn_logout"
+            android:layout_toStartOf="@+id/btn_logout" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/button"
+            android:layout_alignTop="@+id/btn_bajaUser"
+            android:layout_toRightOf="@+id/btn_logout"
+            android:layout_toEndOf="@+id/btn_logout" />
+
+    </RelativeLayout>
+
+
+>>>>>>> Stashed changes
 
    <Button
         android:layout_width="wrap_content"
