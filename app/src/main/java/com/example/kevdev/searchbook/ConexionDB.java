@@ -20,7 +20,7 @@ public class ConexionDB {
 
 
     static final String DATABASE_CREATE = "create table "+ TABLE_NAME +
-            "( " +"ID"+" integer primary key autoincrement not null,"+ "USERNAME  TEXT,NOMBRE TEXT, APELLIDOS TEXT, EMAIL TEXT,PHONE TEXT,PASSWORD TEXT); ";
+            "( " +"ID"+" integer primary key autoincrement not null,"+ "NOMBRE TEXT, APELLIDOS TEXT, EMAIL TEXT,PHONE TEXT,PASSWORD TEXT); ";
 
     public SQLiteDatabase db;
 
@@ -47,16 +47,14 @@ public class ConexionDB {
         return db;
     }
 
-    public void agregarUsuario(String userName,String nombre,String apellidos,String phone,String password,String emailUser)
+    public void agregarUsuario(String nombre,String apellidos,String password,String emailUser)
     {
         ContentValues newValues = new ContentValues();
 
-        newValues.put("USERNAME", userName);
         newValues.put("EMAIL", emailUser);
         newValues.put("PASSWORD", password);
         newValues.put("NOMBRE", nombre);
         newValues.put("APELLIDOS", apellidos);
-        newValues.put("PHONE", phone);
 
 
 

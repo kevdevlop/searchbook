@@ -48,13 +48,12 @@ public class Signup extends AppCompatActivity {
         user.setEmail(editTextEmail.getText().toString());
         user.setApellidoUser(editTextLastName.getText().toString());
         user.setPasswordUser(editTextPassword.getText().toString());
-        user.setPhone(editTextPhone.getText().toString());
+
 
         String confirmPassword=editTextConfirmPassword.getText().toString();
 
         // check if any of the fields are vaccant
-        if(user.getNombreUser().equals("")||user.getApellidosUser().equals("")||confirmPassword.equals("")||user.getEmail().equals("")
-                || user.getPhone().equals(""))
+        if(user.getNombreUser().equals("")||user.getApellidosUser().equals("")||confirmPassword.equals("")||user.getEmail().equals(""))
         {
             Toast.makeText(getApplicationContext(), "Completa los campos", Toast.LENGTH_LONG).show();
             return;
@@ -69,18 +68,13 @@ public class Signup extends AppCompatActivity {
             return;
         }
         for(int i = 0 ; i < user.getNombreUser().length() ; i++)
-            if(!letra(user.getNombreUser().charAt(i))){
+            if(!letra(user.getNombreUser().charAt(i))) {
                 Toast.makeText(getApplicationContext(), "Introducir solamente letras", Toast.LENGTH_LONG).show();
             }
-        else if(user.getPhone().length() < 10){
-            Toast.makeText(getApplicationContext(), "Deben ser 10 digitos", Toast.LENGTH_LONG).show();
-            return;
-        }
         else
         {
             // Save the Data in Database
-            conexionDB.agregarUsuario(user.getNombreUser(),user.getApellidosUser(),user.getPhone()
-                    ,user.getPasswordUser(), user.getEmail());
+            conexionDB.agregarUsuario(user.getNombreUser(),user.getApellidosUser(),user.getPasswordUser(), user.getEmail());
             Toast.makeText(getApplicationContext(), "Cuenta Creada ", Toast.LENGTH_LONG).show();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
@@ -98,10 +92,13 @@ public class Signup extends AppCompatActivity {
         startActivity(i);
     }
 
-    public boolean letra(int a)
-        if ( 'a' >= 'a' && 'a' <= 'z'){
-            return true;}
-        else if ('a' >= 'A' && 'a' <= 'Z'){
-            return true;}
-        else{ return false;}
+    public boolean letra(int a) {
+        if ('a' >= 'a' && 'a' <= 'z') {
+            return true;
+        } else if ('a' >= 'A' && 'a' <= 'Z') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

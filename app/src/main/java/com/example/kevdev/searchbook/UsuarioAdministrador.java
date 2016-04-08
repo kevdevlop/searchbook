@@ -1,17 +1,16 @@
 package com.example.kevdev.searchbook;
 
 /**
- * Created by KevDev on 16/03/16.
+ * Created by PREPA on 07/04/2016.
  */
-//Modelo de usuario
-public class UsuarioRegistrado extends Usuario{
+public class UsuarioAdministrador extends Usuario {
     private String Nombre;
     private String Apellido;
     private String Correo;
     private String password;
 
 
-    public Usuario(int ID, String NombreUser, String ApellidosUser,String email, String passwordUser){
+    public UsuarioAministrador(int ID, String NombreUser, String ApellidosUser,String email, String passwordUser){
         super(ID);
         this.Apellido = ApellidosUser;
         this.Correo = email;
@@ -19,12 +18,13 @@ public class UsuarioRegistrado extends Usuario{
         this.password = passwordUser;
     }
 
-    public Usuario(){
+    public Usuarioregistrado(){
         Nombre = "";
         Apellido = "";
         Correo = "";
         password = "";
     }
+
     public String getNombre() { return Nombre; }
 
     public void setNombre(String nombre){
@@ -58,4 +58,5 @@ public class UsuarioRegistrado extends Usuario{
     public void setID(int ID){
         super(ID);
     }
+}
 }

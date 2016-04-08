@@ -12,7 +12,16 @@
     tools:context="com.example.kevdev.searchbook.PrincipalUser"
     tools:showIn="@layout/activity_principal_user">
 
-<<<<<<< Updated upstream
+< android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />< android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />< android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />< android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />< android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />< android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"< Updated upstream
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

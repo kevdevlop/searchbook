@@ -61,7 +61,7 @@ public class login extends AppCompatActivity {
             } else if (!password.equals(storedPassword)){
                 Toast.makeText(this, "Contraseña Incorrecta", Toast.LENGTH_LONG).show();
             // returns correo not matches whit the email stored
-            } else Toast.makeText(this, "Correo Incorrecto ", Toast.LENGTH_LONG).show();
+            } else Toast.makeText(this, "Correo Incorrecto", Toast.LENGTH_LONG).show();
 
 
     }
