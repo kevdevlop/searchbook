@@ -12,10 +12,69 @@
     tools:context="com.example.kevdev.searchbook.PrincipalAdmin"
     tools:showIn="@layout/activity_principal_admin">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Bienvenido"
-        android:id="@+id/textView3" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="492dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Bienvenido, "
+            android:id="@+id/textView4"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/btn_toModifData"
+            android:layout_alignStart="@+id/btn_toModifData" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/txtTV"
+            android:layout_alignBottom="@+id/textView4"
+            android:layout_toRightOf="@+id/btn_logout"
+            android:layout_toEndOf="@+id/btn_logout"
+            android:textColor="#0057a8" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eliminar Libro"
+            android:id="@+id/btn_goToDelLibro"
+            android:layout_marginTop="78dp"
+            android:onClick="onNewTratamiento"
+            android:layout_below="@+id/txtTV"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salir"
+            android:id="@+id/btn_logout"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="LogOut" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modificar datos de usuario"
+            android:id="@+id/btn_toModifData"
+            android:onClick="onConsult"
+            android:layout_below="@+id/btn_goToDelLibro"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eliminar Usuario"
+            android:id="@+id/btn_bajaUser"
+            android:layout_below="@+id/btn_toModifData"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp" />
+
+    </RelativeLayout>
+
 </LinearLayout>

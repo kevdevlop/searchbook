@@ -9,7 +9,7 @@ import android.util.Log;
  * Created by KevDev on 16/03/16.
  */
 
-
+//TODO: esta clase es auxiliar para la conexion a la base de datos Sqlite
 
     public class DataBaseHelper extends SQLiteOpenHelper
     {
@@ -22,7 +22,7 @@ import android.util.Log;
         @Override
         public void onCreate(SQLiteDatabase _db)
         {
-            _db.execSQL(LoginDataBaseAdapter.DATABASE_CREATE);
+            _db.execSQL(ConexionDB.DATABASE_CREATE);
 
         }
         // Called when there is a database version mismatch meaning that the version

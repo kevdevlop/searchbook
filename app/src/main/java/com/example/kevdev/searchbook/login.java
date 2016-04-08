@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class login extends AppCompatActivity {
     EditText editTextUserName, editTextPassword;
     Button btnLogIn, btnToSignUp;
-    LoginDataBaseAdapter loginDataBaseAdapter;
+    ConexionDB conexionDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +26,8 @@ public class login extends AppCompatActivity {
         btnLogIn=(Button)findViewById(R.id.buttonLogin);
         btnToSignUp = (Button)findViewById(R.id.btn_toSignUp);
 
-        loginDataBaseAdapter = new LoginDataBaseAdapter(this);
-        loginDataBaseAdapter = loginDataBaseAdapter.open();
+        conexionDB = new ConexionDB(this);
+        conexionDB = conexionDB.open();
 
     }
 
@@ -40,7 +40,7 @@ public class login extends AppCompatActivity {
         String password=editTextPassword.getText().toString();
 
         // fetch the Password form database for respective user name
-        String storedPassword=loginDataBaseAdapter.getSinlgeEntry(userName);
+        String storedPassword=conexionDB.getSingleEntry(userName);
         String email_dentista = "admin";
 
         if (email_dentista.equals(userName) && password.equals(storedPassword)){

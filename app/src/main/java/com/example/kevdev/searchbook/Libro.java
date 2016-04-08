@@ -44,7 +44,25 @@ public class Libro {
 
         return precioLibro;
     }
+    public void setTituloLibro(String tituloLibro){
+        this.tituloLibro = tituloLibro;
+    }
 
+    public void setAutorLibro(String autorLibro){
+        this.AutorLibro = autorLibro;
+    }
+
+    public void setCategoriaLibro(String categoriaLibro){
+        this.CategoriaLibro = categoriaLibro;
+    }
+
+    public void setAreaLibroTitulo(String areaLibro){
+        this.AreaLibro = areaLibro;
+    }
+
+    public void setPrecioLibro(int precioLibro){
+        this.precioLibro = precioLibro;
+    }
 
 
 }
