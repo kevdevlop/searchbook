@@ -31,23 +31,21 @@ public class login extends AppCompatActivity {
 
     }
 
-    public void toSignUp(View v){
 
-    }
     public void btnLogin(View v){
 
-        String userName=editTextUserName.getText().toString();
+        String email=editTextUserName.getText().toString();
         String password=editTextPassword.getText().toString();
 
         // fetch the Password form database for respective user name
-        String storedPassword=conexionDB.getSingleEntry(userName);
-        String email_dentista = "admin";
+        String storedPassword=conexionDB.getSingleEntry(email);
+        String email_admin = "admin@admin.com";
 
-        if (email_dentista.equals(userName) && password.equals(storedPassword)){
+        if (email_admin.equals(email) && password.equals(storedPassword)){
 
             Toast.makeText(this, "Felicidades: Ingreso Exitoso", Toast.LENGTH_LONG).show();
             Intent i = new Intent(this, PrincipalAdmin.class);
-            i.putExtra("name", userName);
+            i.putExtra("name", email);
             startActivity(i);
 
         }else {
@@ -55,13 +53,19 @@ public class login extends AppCompatActivity {
             if (password.equals(storedPassword)) {
                 Toast.makeText(this, "Felicidades: Ingreso Exitoso", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(this, PrincipalUser.class);
-                i.putExtra("name", userName);
+                i.putExtra("name", email);
                 startActivity(i);
             } else {
                 Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
             }
         }
     }
+
+    public void btn_toSignUp(View view){
+        Intent i = new Intent(this, Signup.class);
+        startActivity(i);
+    }
+
 
 
 }

@@ -37,7 +37,8 @@
         <activity
             android:name=".PrincipalAdmin"
             android:label="@string/title_activity_principal_admin"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MenuEliminarFrmUser"></activity>
     </application>
 
 </manifest>

@@ -15,9 +15,9 @@ import android.widget.Toast;
 // En el documento no aparece esta clase ya que en android se maneja diferente
 public class Signup extends AppCompatActivity {
 
-    EditText editTextUserName,editTextPassword,editTextConfirmPassword, editTextEmail, editTextPhone, editTextLastName, editTextName;
+    EditText editTextPassword,editTextConfirmPassword, editTextEmail, editTextLastName, editTextName;
     Button btnCreateAccount, cancel;
-    Usuario user;
+    UsuarioRegistrado user;
 
     ConexionDB conexionDB;
 
@@ -26,16 +26,15 @@ public class Signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_signup);
 
-        // get Instance  of Database Adapter
+        // obteniendo instancias de Database Adapter
         conexionDB=new ConexionDB(this);
         conexionDB=conexionDB.open();
 
-        // Get Refferences of Views
+        // obteniendo referencias de las Views
         editTextEmail=(EditText)findViewById(R.id.EditTxtEmailUser);
-        editTextUserName=(EditText)findViewById(R.id.EditTxtUsernameSignUp);
+
         editTextPassword=(EditText)findViewById(R.id.editTextPassword);
         editTextName = (EditText) findViewById(R.id.editTxtName);
-        editTextPhone = (EditText) findViewById(R.id.editTxtPhone);
         editTextLastName = (EditText) findViewById(R.id.EditTxtLastName);
         editTextConfirmPassword=(EditText)findViewById(R.id.editTextPasswordConfirm);
 
@@ -44,37 +43,54 @@ public class Signup extends AppCompatActivity {
 
     }
     public  void toSignUp(View v){
-        user = new Usuario();
+        user = new UsuarioRegistrado();
         user.setNombreUser(editTextName.getText().toString());
-        user.setUserName(editTextUserName.getText().toString());
         user.setEmail(editTextEmail.getText().toString());
         user.setApellidoUser(editTextLastName.getText().toString());
         user.setPasswordUser(editTextPassword.getText().toString());
-        user.setPhone(editTextPhone.getText().toString());
+
 
         String confirmPassword=editTextConfirmPassword.getText().toString();
 
-        // check if any of the fields are vaccant
-        if(user.getNombreUser().equals("")||user.getApellidosUser().equals("")||confirmPassword.equals("")||user.getEmail().equals("")
-                || user.getPhone().equals("") || user.getUserName().equals(""))
+        // verificar si no hay campos vacios
+        if(user.getNombreUser().equals("")||user.getApellidosUser().equals("")||confirmPassword.equals("")||user.getEmail().equals(""))
         {
             Toast.makeText(getApplicationContext(), "Completa los campos", Toast.LENGTH_LONG).show();
             return;
         }
-        // check if both password matches
+        // verificar si las passwords coinciden
         if(!user.getPasswordUser().equals(confirmPassword))
         {
             Toast.makeText(getApplicationContext(), "La contraseñas no coinciden", Toast.LENGTH_LONG).show();
             return;
         }
+        if(user.getPasswordUser().length() > 8 && user.getPasswordUser().length() < 16){
+            if (!user.getPasswordUser().equals(confirmPassword)) {
+                Toast.makeText(getApplicationContext(), "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
+                return;
+            }
+            Toast.makeText(getApplicationContext(), "Minimo 8 caracteres y maximo 16", Toast.LENGTH_LONG).show();
+            return;
+        }
+        for(int i = 0 ; i < user.getNombreUser().length() ; i++)
+            if(!letra(user.getNombreUser().charAt(i))){
+                Toast.makeText(getApplicationContext(), "Introducir solamente letras", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+        if (user.getPasswordUser().length() < 8 ){
+            Toast.makeText(getApplicationContext(), "Por lo menos deben ser 8 digitos en el password", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         else
         {
-            // Save the Data in Database
-            conexionDB.agregarUsuario(user.getUserName(),user.getNombreUser(),user.getApellidosUser(),user.getPhone()
+            // guardar en DB
+            conexionDB.agregarUsuario(user.getNombreUser(),user.getApellidosUser()
                     ,user.getPasswordUser(), user.getEmail());
             Toast.makeText(getApplicationContext(), "Cuenta Creada ", Toast.LENGTH_LONG).show();
-            Intent i = new Intent(this, MainActivity.class);
-            startActivity(i);
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
     }
     @Override
@@ -87,6 +103,15 @@ public class Signup extends AppCompatActivity {
     public void btn_toCancel(View view){
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+    }
+    public boolean letra(int a) {
+        if ('a' >= 'a' && 'a' <= 'z') {
+            return true;
+        } else if ('a' >= 'A' && 'a' <= 'Z') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

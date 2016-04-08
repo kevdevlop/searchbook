@@ -20,7 +20,7 @@ public class ConexionDB {
 
 
     static final String DATABASE_CREATE = "create table "+ TABLE_NAME +
-            "( " +"ID"+" integer primary key autoincrement not null,"+ "USERNAME  TEXT,NOMBRE TEXT, APELLIDOS TEXT, EMAIL TEXT,PHONE TEXT,PASSWORD TEXT); ";
+            "( " +"ID"+" integer primary key autoincrement not null,"+ "NOMBRE TEXT, APELLIDOS TEXT, EMAIL TEXT,PASSWORD TEXT); ";
 
     public SQLiteDatabase db;
 
@@ -47,26 +47,31 @@ public class ConexionDB {
         return db;
     }
 
-    public void agregarUsuario(String userName,String nombre,String apellidos,String phone,String password,String emailUser)
-    {
+    //contenedor de valores a ocupar
+    private ContentValues contentValues(String nombre,String apellidos,String password,String emailUser){
         ContentValues newValues = new ContentValues();
 
-        newValues.put("USERNAME", userName);
         newValues.put("EMAIL", emailUser);
         newValues.put("PASSWORD", password);
         newValues.put("NOMBRE", nombre);
         newValues.put("APELLIDOS", apellidos);
-        newValues.put("PHONE", phone);
 
+        return newValues;
+    }
 
-
-        db.insert("LOGIN", null, newValues);
+    public void agregarUsuario(String nombre,String apellidos,String password,String emailUser)
+    {
+        db.insert("LOGIN", null, contentValues(nombre, apellidos, password, emailUser));
 
     }
 
-    public String getSingleEntry(String userName)
+    public void deleteUser(String name){
+        db.delete(TABLE_NAME, "NOMBRE" + "=?", new String[]{name});
+    }
+
+    public String getSingleEntry(String email)
     {
-        Cursor cursor=db.query("LOGIN", null, "USERNAME=?", new String[]{userName}, null, null, null);
+        Cursor cursor=db.query(TABLE_NAME, null, "EMAIL=?", new String[]{email}, null, null, null);
         if(cursor.getCount()<1)
         {
             cursor.close();
@@ -76,6 +81,15 @@ public class ConexionDB {
         String password= cursor.getString(cursor.getColumnIndex("PASSWORD"));
         cursor.close();
         return password;
+    }
+
+    public void modificarNombreApellido(String nombre,String apellidos,String password,String emailUser){
+        db.update(TABLE_NAME, contentValues(nombre, apellidos, password, emailUser), "NOMBRE" + "=?", new String[]{nombre});
+    }
+
+    public Cursor cargarCursorUsers(){
+        String[] columnas = {"ID","NOMBRE", "APELLIDOS","EMAIL", "PASSWORD"};
+        return  db.query(TABLE_NAME,columnas,null,null,null,null,null);
     }
 
 

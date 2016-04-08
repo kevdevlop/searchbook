@@ -7,17 +7,8 @@
     android:orientation="vertical">
 
 
-    <EditText
-        android:id="@+id/EditTxtUsernameSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:hint="@string/prompt_userName"
-        android:ems="10" >
 
-        <requestFocus />
-    </EditText>
+
 
     <EditText
         android:id="@+id/editTxtName"
@@ -26,7 +17,7 @@
         android:hint="@string/prompt_Name"
         android:ems="10" >
 
-
+        <requestFocus />
     </EditText>
 
     <EditText
@@ -48,19 +39,6 @@
         android:hint="@string/prompt_email"
         android:ems="10"
         android:inputType="textEmailAddress">
-
-
-    </EditText>
-
-    <EditText
-        android:id="@+id/editTxtPhone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:hint="@string/prompt_phone"
-        android:ems="10"
-        android:inputType="textPhonetic">
 
 
     </EditText>

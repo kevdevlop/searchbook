@@ -42,7 +42,7 @@
             android:text="Eliminar Libro"
             android:id="@+id/btn_goToDelLibro"
             android:layout_marginTop="78dp"
-            android:onClick="onNewTratamiento"
+            android:onClick=" onDeleteBook"
             android:layout_below="@+id/txtTV"
             android:layout_centerHorizontal="true" />
 
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:text="Modificar datos de usuario"
             android:id="@+id/btn_toModifData"
-            android:onClick="onConsult"
+            android:onClick="onModifData"
             android:layout_below="@+id/btn_goToDelLibro"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="48dp" />
@@ -73,7 +73,8 @@
             android:id="@+id/btn_bajaUser"
             android:layout_below="@+id/btn_toModifData"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="50dp"
+            android:onClick="onDeleteUser" />
 
     </RelativeLayout>
 

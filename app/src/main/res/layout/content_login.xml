@@ -15,7 +15,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:inputType="textCapWords"
-        android:hint="@string/prompt_userName"
+        android:hint="@string/prompt_email"
         android:ems="10" >
 
         <requestFocus />
@@ -60,6 +60,6 @@
         android:text="@string/action_signup"
         android:id="@+id/btn_toSignUp"
         android:layout_gravity="center_horizontal"
-        android:onClick="toSignUp" />
+        android:onClick="btn_toSignUp" />
 
 </LinearLayout>
