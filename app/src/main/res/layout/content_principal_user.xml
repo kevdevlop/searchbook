@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Agregar Libro"
-        android:id="@+id/btn_goToDelLibro"
+        android:id="@+id/btn_goToAddLibro"
         android:layout_marginTop="48dp"
         android:onClick="onAgregarLibro"
         android:layout_below="@+id/txtTV"
@@ -61,7 +61,7 @@
         android:text="Modificar datos"
         android:id="@+id/btn_toModifData"
         android:onClick="onModifData"
-        android:layout_alignTop="@+id/btn_goToDelLibro"
+        android:layout_alignTop="@+id/btn_goToAddLibro"
         android:layout_alignRight="@+id/btn_searchBook"
         android:layout_alignEnd="@+id/btn_searchBook" />
 

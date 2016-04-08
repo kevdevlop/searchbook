@@ -2,8 +2,6 @@ package com.example.kevdev.searchbook;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,9 +9,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PrincipalUser extends AppCompatActivity {
+public class PrincipalUser extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnLogOut, onAgregarLibro,onModifData, onDeleteUser,onSerchBook;
+    Button buttonLogOut, buttonDelUser, buttonSearchBook , buttonModifData, buttonAddBook;
     private TextView Textv;
     Toast toast;
 
@@ -24,11 +22,18 @@ public class PrincipalUser extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        btnLogOut = (Button)findViewById(R.id.btn_logout);
-        onAgregarLibro = (Button) findViewById(R.id.btn_goToDelLibro);
-        onModifData = (Button) findViewById(R.id.btn_toModifData);
-        onDeleteUser = (Button) findViewById(R.id.btn_bajaUser);
-        onSerchBook = (Button) findViewById(R.id.btn_searchBook);
+        buttonLogOut = (Button) findViewById(R.id.btn_logout);
+        buttonAddBook = (Button) findViewById(R.id.btn_goToAddLibro);
+        buttonDelUser = (Button) findViewById(R.id.btn_bajaUser);
+        buttonModifData = (Button) findViewById(R.id.btn_toModifData);
+        buttonSearchBook = (Button) findViewById(R.id.btn_searchBook);
+
+        buttonAddBook.setOnClickListener(this);
+        buttonDelUser.setOnClickListener(this);
+        buttonModifData.setOnClickListener(this);
+        buttonLogOut.setOnClickListener(this);
+        buttonSearchBook.setOnClickListener(this);
+
         Textv = (TextView)findViewById(R.id.txtTV);
         Intent iin= getIntent();
         Bundle b = iin.getExtras();
@@ -41,22 +46,27 @@ public class PrincipalUser extends AppCompatActivity {
 
 
     }
-    public void onAgregarLibro(){
-        toast.makeText(getApplicationContext(), "Aqui debería agregar un nuevo libro", Toast.LENGTH_LONG).show();
-    }
-    public void onModifData(){
-        toast.makeText(getApplicationContext(), "Aqui deberia modificar los datos del usuario", Toast.LENGTH_LONG).show();
-    }
-    public void onDeleteUser(){
-        toast.makeText(getApplicationContext(), "Aqui deberia eliminar el usuario", Toast.LENGTH_LONG).show();
-    }
-    public void onSerchBook(){
-        toast.makeText(getApplicationContext(), "Aqui deberia buscar un libro", Toast.LENGTH_LONG).show();
-    }
-    public void LogOut(View view){
-        this.finish();
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btn_bajaUser){
+            Toast.makeText(getApplicationContext(), "Aqui debería darse de baja", Toast.LENGTH_LONG).show();
+
+        }else if (v.getId() == R.id.btn_goToAddLibro){
+
+            Toast.makeText(getApplicationContext(), "Aqui debería agregar un nuevo libro", Toast.LENGTH_LONG).show();
+
+        }else if (v.getId() == R.id.btn_toModifData){
+
+            Toast.makeText(getApplicationContext(), "Aqui deberia modificar los datos del usuario", Toast.LENGTH_LONG).show();
+
+        }else if (v.getId() == R.id.btn_logout){
+            this.finish();
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+
+        }else if (v.getId() == R.id.btn_searchBook){
+            Toast.makeText(getApplicationContext(), "Aqui deberia realizar la busqueda de un libro", Toast.LENGTH_LONG).show();
+        }
     }
 
 }

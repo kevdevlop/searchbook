@@ -89,7 +89,9 @@ public class ConexionDB {
 
     public Cursor cargarCursorUsers(){
         String[] columnas = {"ID","NOMBRE", "APELLIDOS","EMAIL", "PASSWORD"};
-        return  db.query(TABLE_NAME,columnas,null,null,null,null,null);
+        db= dbHelper.getReadableDatabase();
+        Cursor c = db.query(TABLE_NAME, columnas, null, null, null, null, null);
+        return  c;
     }
 
 

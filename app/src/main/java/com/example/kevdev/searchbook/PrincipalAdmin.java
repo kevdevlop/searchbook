@@ -2,8 +2,6 @@ package com.example.kevdev.searchbook;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -22,7 +20,7 @@ public class PrincipalAdmin extends AppCompatActivity implements View.OnClickLis
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         buttonLogOut = (Button) findViewById(R.id.btn_logout);
-        buttonDelBook = (Button) findViewById(R.id.btn_goToDelLibro);
+        buttonDelBook = (Button) findViewById(R.id.btn_goTodelBook);
         buttonDelUser = (Button) findViewById(R.id.btn_bajaUser);
         buttonModifData = (Button) findViewById(R.id.btn_toModifData);
 
@@ -51,9 +49,9 @@ public class PrincipalAdmin extends AppCompatActivity implements View.OnClickLis
             Intent intent = new Intent(this, MenuEliminarFrmUser.class);
             startActivity(intent);
 
-        }else if (v.getId() == R.id.btn_goToDelLibro){
+        }else if (v.getId() == R.id.btn_goTodelBook){
 
-            Toast.makeText(getApplicationContext(), "Aqui debería agregar un nuevo libro", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Aqui debería eliminar un libro", Toast.LENGTH_LONG).show();
 
         }else if (v.getId() == R.id.btn_toModifData){
 
