@@ -5,64 +5,58 @@ package com.example.kevdev.searchbook;
  */
 //Modelo del Libro
 public class Libro {
-    private String tituloLibro;
-    private String AutorLibro;
-    private String CategoriaLibro;
-    private String AreaLibro;
-    private int precioLibro;
+    private String Titulo;
+    private String Autor;
+    private String Categoria;
+    private String Area;
+    private float precio;
+    private String Version;
 
-    public Libro (String tituloLibro, String AutorLibro, String CategoriaLibro, String AreaLibro,
-                  int precioLibro){
+    public Libro (String tituloLibro, String AutorLibro, String CategoriaLibro, String AreaLibro, float precioLibro, String version){
 
-        this.tituloLibro = tituloLibro;
-        this.AutorLibro = AutorLibro;
-        this.CategoriaLibro = CategoriaLibro;
-        this.AreaLibro = AreaLibro;
-        this.precioLibro = precioLibro;
-
+        this.Titulo = tituloLibro;
+        this.Autor = AutorLibro;
+        this.Categoria = CategoriaLibro;
+        this.Area = AreaLibro;
+        this.precio = precioLibro;
+        this.Version = version;
     }
 
-    public String getTituloLibro() {
+    public String getTitulo() { return Titulo; }
 
-        return tituloLibro;
+    public String getAutor() { return Autor; }
+
+    public String getCategoria(){
+        return Categoria;
     }
 
-    public String getAutorLibro() {
-
-        return AutorLibro;
+    public String getArea(){
+        return Area;
     }
 
-    public String getCategoriaLibro(){
-        return CategoriaLibro;
+    public float getPrecio() { return precio; }
+
+    public String getVersion() { return Version; }
+
+    public void setTitulo(String tituloLibro){
+        this.Titulo = tituloLibro;
     }
 
-    public String getAreaLibro(){
-        return AreaLibro;
+    public void setAutor(String autorLibro){
+        this.Autor = autorLibro;
     }
 
-    public int getPrecioLibro() {
-
-        return precioLibro;
-    }
-    public void setTituloLibro(String tituloLibro){
-        this.tituloLibro = tituloLibro;
+    public void setCategoria(String categoriaLibro){
+        this.Categoria = categoriaLibro;
     }
 
-    public void setAutorLibro(String autorLibro){
-        this.AutorLibro = autorLibro;
+    public void setArea(String areaLibro){
+        this.Area = areaLibro;
     }
 
-    public void setCategoriaLibro(String categoriaLibro){
-        this.CategoriaLibro = categoriaLibro;
+    public void setPrecio(float precioLibro){
+        this.precio = precioLibro;
     }
 
-    public void setAreaLibroTitulo(String areaLibro){
-        this.AreaLibro = areaLibro;
-    }
-
-    public void setPrecioLibro(int precioLibro){
-        this.precioLibro = precioLibro;
-    }
-
-
+    public void setVersion(String version) { this.Version = version; }
 }

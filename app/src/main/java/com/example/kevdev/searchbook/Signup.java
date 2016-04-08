@@ -32,7 +32,6 @@ public class Signup extends AppCompatActivity {
 
         // Get Refferences of Views
         editTextEmail=(EditText)findViewById(R.id.EditTxtEmailUser);
-        editTextUserName=(EditText)findViewById(R.id.EditTxtUsernameSignUp);
         editTextPassword=(EditText)findViewById(R.id.editTextPassword);
         editTextName = (EditText) findViewById(R.id.editTxtName);
         editTextPhone = (EditText) findViewById(R.id.editTxtPhone);
@@ -44,34 +43,38 @@ public class Signup extends AppCompatActivity {
 
     }
     public  void toSignUp(View v){
-        user = new Usuario();
-        user.setNombreUser(editTextName.getText().toString());
-        user.setUserName(editTextUserName.getText().toString());
-        user.setEmail(editTextEmail.getText().toString());
-        user.setApellidoUser(editTextLastName.getText().toString());
-        user.setPasswordUser(editTextPassword.getText().toString());
-        user.setPhone(editTextPhone.getText().toString());
+        UsuarioRegistrado user = new UsuarioRegistrado();
+        user.setNombre(editTextName.getText().toString());
+        user.setCorreo(editTextEmail.getText().toString());
+        user.setApellido(editTextLastName.getText().toString());
+        user.setPassword(editTextPassword.getText().toString());
+
 
         String confirmPassword=editTextConfirmPassword.getText().toString();
 
         // check if any of the fields are vaccant
-        if(user.getNombreUser().equals("")||user.getApellidosUser().equals("")||confirmPassword.equals("")||user.getEmail().equals("")
-                || user.getPhone().equals("") || user.getUserName().equals(""))
+        if(user.getNombre().equals("")||user.getApellido().equals("")||confirmPassword.equals("")||user.Correo().equals(""))
         {
             Toast.makeText(getApplicationContext(), "Completa los campos", Toast.LENGTH_LONG).show();
             return;
         }
         // check if both password matches
-        if(!user.getPasswordUser().equals(confirmPassword))
-        {
-            Toast.makeText(getApplicationContext(), "La contraseñas no coinciden", Toast.LENGTH_LONG).show();
+        if(user.getPassword().length() > 8 && user.getPassword().length() < 16){
+            if (!user.getPassword().equals(confirmPassword)) {
+                Toast.makeText(getApplicationContext(), "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
+                return;
+            }
+            Toast.makeText(getApplicationContext(), "Minimo 8 caracteres y maximo 16", Toast.LENGTH_LONG).show();
             return;
         }
+        for(int i = 0 ; i < user.getNombre().length() ; i++)
+            if(!letra(user.getNombre().charAt(i))) {
+                Toast.makeText(getApplicationContext(), "Introducir solamente letras", Toast.LENGTH_LONG).show();
+            }
         else
         {
             // Save the Data in Database
-            conexionDB.agregarUsuario(user.getUserName(),user.getNombreUser(),user.getApellidosUser(),user.getPhone()
-                    ,user.getPasswordUser(), user.getEmail());
+            conexionDB.agregarUsuario(user.getNombre(),user.getApellido(),user.getPassword(), user.getCorreo());
             Toast.makeText(getApplicationContext(), "Cuenta Creada ", Toast.LENGTH_LONG).show();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
@@ -89,4 +92,13 @@ public class Signup extends AppCompatActivity {
         startActivity(i);
     }
 
+    public boolean letra(char x) {
+        if ('x' >= 'a' && 'x' <= 'z') {
+            return true;
+        } else if ('x' >= 'A' && 'x' <= 'Z') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
