@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Bienvenido, "
+            android:text="Menu Administrador  "
             android:id="@+id/textView4"
             android:layout_alignParentTop="true"
             android:layout_alignLeft="@+id/btn_toModifData"
@@ -39,7 +39,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Eliminar Libro"
+            android:text="Menu Libros"
             android:id="@+id/btn_goToDelLibro"
             android:layout_marginTop="78dp"
             android:onClick="onNewTratamiento"

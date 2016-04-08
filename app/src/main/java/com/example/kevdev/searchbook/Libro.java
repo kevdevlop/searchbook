@@ -9,28 +9,20 @@ public class Libro {
     private String AutorLibro;
     private String CategoriaLibro;
     private String AreaLibro;
-    private int precioLibro;
+    private float precioLibro;
 
-    public Libro (String tituloLibro, String AutorLibro, String CategoriaLibro, String AreaLibro,
-                  int precioLibro){
+    public Libro (String tituloLibro, String AutorLibro, String CategoriaLibro, String AreaLibro, float precioLibro){
 
         this.tituloLibro = tituloLibro;
         this.AutorLibro = AutorLibro;
         this.CategoriaLibro = CategoriaLibro;
         this.AreaLibro = AreaLibro;
         this.precioLibro = precioLibro;
-
     }
 
-    public String getTituloLibro() {
+    public String getTituloLibro() { return tituloLibro; }
 
-        return tituloLibro;
-    }
-
-    public String getAutorLibro() {
-
-        return AutorLibro;
-    }
+    public String getAutorLibro() { return AutorLibro; }
 
     public String getCategoriaLibro(){
         return CategoriaLibro;
@@ -40,10 +32,8 @@ public class Libro {
         return AreaLibro;
     }
 
-    public int getPrecioLibro() {
+    public float getPrecioLibro() { return precioLibro; }
 
-        return precioLibro;
-    }
     public void setTituloLibro(String tituloLibro){
         this.tituloLibro = tituloLibro;
     }
@@ -60,9 +50,7 @@ public class Libro {
         this.AreaLibro = areaLibro;
     }
 
-    public void setPrecioLibro(int precioLibro){
+    public void setPrecioLibro(float precioLibro){
         this.precioLibro = precioLibro;
     }
-
-
 }

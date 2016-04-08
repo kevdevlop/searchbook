@@ -7,18 +7,16 @@ package com.example.kevdev.searchbook;
 public class Usuario {
     private int ID;
     private String NombreUser;
-    private String userName;
     private String ApellidosUser;
     private String email;
     private String phone;
     private String passwordUser;
 
 
-    public Usuario(int ID, String NombreUser, String ApellidosUser,String email, String phone, String passwordUser, String userName){
+    public Usuario(int ID, String NombreUser, String ApellidosUser,String email, String phone, String passwordUser){
         this.ID =  ID;
         this.ApellidosUser = ApellidosUser;
         this.email = email;
-        this.userName = userName;
         this.phone = phone;
         this.NombreUser = NombreUser;
         this.passwordUser = passwordUser;
@@ -26,16 +24,13 @@ public class Usuario {
 
     public Usuario(){
         NombreUser = "";
-        userName = "";
         ApellidosUser = "";
         email = "";
         phone = "";
         passwordUser = "";
     }
-    public String getNombreUser() {
+    public String getNombreUser() { return NombreUser; }
 
-        return NombreUser;
-    }
     public void setNombreUser(String nombre){
         this.NombreUser = nombre;
     }
@@ -63,14 +58,12 @@ public class Usuario {
     }
 
     public int getID() { return ID; }
+
     public void setID(int ID){
         this.ID = ID;
     }
 
     public String getPhone(){return phone;}
+
     public void setPhone(String phone){this.phone = phone;}
-
-    public String getUserName(){return userName;}
-    public void setUserName(String userName){this.userName = userName;}
-
 }

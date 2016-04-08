@@ -36,31 +36,34 @@ public class login extends AppCompatActivity {
     }
     public void btnLogin(View v){
 
-        String userName=editTextUserName.getText().toString();
+        String correo=editTextUserName.getText().toString();
         String password=editTextPassword.getText().toString();
 
         // fetch the Password form database for respective user name
-        String storedPassword=conexionDB.getSingleEntry(userName);
-        String email_dentista = "admin";
+        String storedPassword=conexionDB.getSingleEntry(password);
+        String email_admin =conexionDB.getSingleEntry(correo);
 
-        if (email_dentista.equals(userName) && password.equals(storedPassword)){
+        if (correo.equals(email_admin) && password.equals(storedPassword)){
 
             Toast.makeText(this, "Felicidades: Ingreso Exitoso", Toast.LENGTH_LONG).show();
             Intent i = new Intent(this, PrincipalAdmin.class);
-            i.putExtra("name", userName);
+            i.putExtra("name", correo);
             startActivity(i);
 
-        }else {
-            // check if the Stored password matches with  Password entered by user
-            if (password.equals(storedPassword)) {
+        }else
+            // check if the Stored password and  email matches with  Password and correo entered by user
+            if (password.equals(storedPassword) && correo.equals(email_admin)) {
                 Toast.makeText(this, "Felicidades: Ingreso Exitoso", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(this, PrincipalUser.class);
-                i.putExtra("name", userName);
+                i.putExtra("name", correo);
                 startActivity(i);
-            } else {
-                Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
-            }
-        }
+            // check if the stored password matches with the password entered
+            } else if (!password.equals(storedPassword)){
+                Toast.makeText(this, "Contraseña Incorrecta", Toast.LENGTH_LONG).show();
+            // returns correo not matches whit the email stored
+            } else Toast.makeText(this, "Correo Incorrecto ", Toast.LENGTH_LONG).show();
+
+
     }
 
 

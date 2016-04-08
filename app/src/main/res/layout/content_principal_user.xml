@@ -17,7 +17,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:layout_marginBottom="14dp"                android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginBottom="14dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Bienvenido"
         android:id="@+id/textView3" />
 =======
@@ -102,13 +103,13 @@
 >>>>>>> Stashed changes
 
    <Button
-        android:layout_width="wrap_content"
+        android:layout_width="46dp"
         android:layout_height="wrap_content"
         android:text="Modificar datos"
         android:id="@+id/btn_modifData"
         android:layout_marginTop="14dp"
         android:layout_marginBottom="14dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="left|center_horizontal"
         android:onClick="modifData"
         android:background="#112ff0"
         android:textColor="#ffffff" />
