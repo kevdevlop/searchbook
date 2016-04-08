@@ -11,7 +11,7 @@ public class UsuarioRegistrado extends Usuario{
     private String password;
 
 
-    public Usuario(int ID, String NombreUser, String ApellidosUser,String email, String passwordUser){
+    public UsuarioRegistrado(int ID, String NombreUser, String ApellidosUser,String email, String passwordUser){
         super(ID);
         this.Apellido = ApellidosUser;
         this.Correo = email;
@@ -19,7 +19,8 @@ public class UsuarioRegistrado extends Usuario{
         this.password = passwordUser;
     }
 
-    public Usuario(){
+    public UsuarioRegistrado(){
+        super();
         Nombre = "";
         Apellido = "";
         Correo = "";
@@ -27,9 +28,7 @@ public class UsuarioRegistrado extends Usuario{
     }
     public String getNombre() { return Nombre; }
 
-    public void setNombre(String nombre){
-        this.Nombre = nombre;
-    }
+    public void setNombre(String nombre){ this.Nombre = nombre; }
 
     public String getApellido() { return Apellido;}
 
