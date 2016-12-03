@@ -1,10 +1,12 @@
-package com.example.kevdev.searchbook;
+package com.example.kevdev.searchbook.model;
+
+import com.example.kevdev.searchbook.model.Usuario;
 
 /**
  * Created by KevDev on 08/04/16.
  */
 //TODO: subclase UsuarioAdministrador que se relaciona con la clase Usuario
-public class UsuarioAdministrador extends Usuario{
+public class UsuarioAdministrador extends Usuario {
 
     private String NombreUser;
     private String ApellidosUser;

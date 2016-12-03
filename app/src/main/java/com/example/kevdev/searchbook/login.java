@@ -16,6 +16,7 @@ public class login extends AppCompatActivity {
     EditText editTextUserName, editTextPassword;
     Button btnLogIn, btnToSignUp;
     ConexionDB conexionDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,3 +70,4 @@ public class login extends AppCompatActivity {
 
 
 }
+

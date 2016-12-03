@@ -1,4 +1,6 @@
-package com.example.kevdev.searchbook;
+package com.example.kevdev.searchbook.model;
+
+import com.example.kevdev.searchbook.model.Usuario;
 
 /**
  * Created by KevDev on 08/04/16.

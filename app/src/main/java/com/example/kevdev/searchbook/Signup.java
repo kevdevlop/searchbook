@@ -2,14 +2,13 @@ package com.example.kevdev.searchbook;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.kevdev.searchbook.model.UsuarioRegistrado;
 
 //TODO: clase para registrar a un usuario, ya que en andriod se crea una clase por cada vista
 // En el documento no aparece esta clase ya que en android se maneja diferente
@@ -104,6 +103,7 @@ public class Signup extends AppCompatActivity {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
+
     public boolean letra(int a) {
         if ('a' >= 'a' && 'a' <= 'z') {
             return true;

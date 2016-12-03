@@ -1,4 +1,4 @@
-package com.example.kevdev.searchbook;
+package com.example.kevdev.searchbook.model;
 
 /**
  * Created by KevDev on 16/03/16.
