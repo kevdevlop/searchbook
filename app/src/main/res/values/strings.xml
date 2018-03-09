@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SearchBook</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_login">Login</string>
 
     <!-- Strings related to login and signup -->
     <string name="prompt_email">Email</string>

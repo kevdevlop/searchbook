@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigationModel
+  ns = "http://schemas.android.com?import=com.android.tools.idea.editors.navigation.model.*">
+  <locations  
+    class = "java.util.ArrayList">
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.example.kevdev.searchbook.login"/>
+      <point      
+        x = "1880"      
+        y = "352"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.example.kevdev.searchbook.Signup"/>
+      <point      
+        x = "200"      
+        y = "540"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.example.kevdev.searchbook.PrincipalUser"/>
+      <point      
+        x = "1344"      
+        y = "1092"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.example.kevdev.searchbook.PrincipalAdmin"/>
+      <point      
+        x = "1084"      
+        y = "152"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.example.kevdev.searchbook.MainActivity"/>
+      <point      
+        x = "596"      
+        y = "1032"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.example.kevdev.searchbook.MenuEliminarFrmUser"/>
+      <point      
+        x = "344"      
+        y = "84"/>
+    </statePointEntry>
+  </locations>
+</navigationModel>
